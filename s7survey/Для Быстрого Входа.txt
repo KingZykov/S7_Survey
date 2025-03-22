@@ -1,0 +1,22 @@
+cd B:\pyProject\venv\Scripts
+.\activate
+cd B:\pyProject\s7survey
+python manage.py runserver
+
+
+python manage.py collectstatic --noinput
+python manage.py runserver
+
+
+
+net start MySQL
+
+
+
+
+Запустите миграции в Django:
+
+sh
+Копировать
+Редактировать
+python manage.py migrate

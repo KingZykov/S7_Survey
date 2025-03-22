@@ -1,0 +1,123 @@
+:root {
+    --s7-green: #C4D600;
+    --s7-dark-gray: #4A4A4A;
+    --s7-white: #FFFFFF;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--s7-white);
+    color: var(--s7-dark-gray);
+    margin: 40px;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: var(--s7-white);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--s7-dark-gray);
+}
+
+h2 {
+    text-align: center;
+    color: var(--s7-green);
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+}
+
+
+textarea, select, input {
+    all: unset; 
+    width: calc(100% - 1px); /* Учитываем padding */
+    max-width: 100%;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    padding: 8px;
+    border: 1px solid var(--s7-dark-gray);
+    border-radius: 5px;
+    box-sizing: border-box;
+    display: block;
+    font-size: 1em !important;
+    
+}
+
+textarea#feedback {
+    font-size: 1em !important;
+    line-height: 1.5;
+    color: var(--s7-dark-gray);
+}
+
+button {
+    background: var(--s7-green);
+    color: var(--s7-white);
+    padding: 12px;
+    border: none;
+    width: 100%;
+    border-radius: 4px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+button:hover {
+    background: #A0B800;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;  /* Центрируем по горизонтали */
+    align-items: center;      /* Центрируем по вертикали */
+    width: 100%;              
+    max-width: 100%;
+    margin-bottom: 20px;      /* Добавляем отступ снизу */
+}
+
+.logo-container img {
+    max-width: 120%;         /* Не выходит за границы контейнера */
+    max-height: 120px;       /* Ограничиваем максимальную высоту */
+    height: auto;            /* Автоматическая пропорция */
+}
+
+.logo-container, h2 {
+    pointer-events: none; /* Отключает клики и курсор */
+    user-select: none; /* Запрещает выделение текста */
+}
+
+
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    width: 30%; /* Уменьшена ширина */
+    text-align: center;
+    font-size: 18px;
+}
+.popup.show {
+    display: block;
+}
+.popup button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.blurred {
+    filter: blur(5px);
+    pointer-events: none;
+}

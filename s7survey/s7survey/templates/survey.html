@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Опрос качества полёта</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css'%}">
+    <link rel="icon" href="{% static 'images/s7logo1.png'%}">
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="logo-container">
+            <img src="{% static 'images/S71.png'%}" alt="S7 Logo">
+        </div>
+        <h2>Опрос качества полёта</h2>
+
+        <form method="post">
+            {% csrf_token %}
+            <label for="flight_number">Номер рейса:</label>
+            <input type="number" id="flight_number" name="flight_number" min="1" required>
+            
+            <label for="rating">Оцените полёт (1-5):</label>
+            <select id="rating" name="rating" required>
+                <option value="5">Отлично</option>
+                <option value="4">Хорошо</option>
+                <option value="3">Нормально</option>
+                <option value="2">Плохо</option>
+                <option value="1">Ужасно</option>
+            </select>
+
+            <label for="feedback">Дополнительные комментарии:</label>
+            <textarea id="feedback" name="feedback" rows="4"></textarea>
+
+            <button type="submit">Отправить</button>
+        </form>
+    </div>
+
+    {% if success_message %}
+        <div id="popup" class="popup show">
+            <p>{{ success_message }}</p>
+            <button onclick="closePopup()">Закрыть</button>
+        </div>
+        <script>
+            document.getElementById("content").classList.add("blurred");
+        </script>
+    {% endif %}
+
+    <script>
+        function closePopup() {
+            document.getElementById("popup").classList.remove("show");
+            document.getElementById("content").classList.remove("blurred");
+        }
+    </script>
+</body>
+</html>
